@@ -1,13 +1,15 @@
 require('dotenv').config();
 require('./database');
+require('dotenv');
 
 const express = require("express");
 const morgan = require("morgan");
 const routes = require("./routes");
 const app = express();
 const axios = require("axios").default;
-const apk = '5b23f9741e4c42b4b56a00cf331fc75f';
+const apk = process.env.API_KEY;
 const Recipe = require('./models/recipe');
+const { db } = require('./models/recipe');
 
 const getApiInfo = async () => {
     const apiUrl = await axios.get("https://api.spoonacular.com/recipes/complexSearch?number=3&addRecipeInformation=true&apiKey=" + apk);
@@ -27,16 +29,25 @@ const getApiInfo = async () => {
     return apiInfo;
 };
 
-const getAllRecipes = async () => {
-    const apiInfo = await getApiInfo();
-    return apiInfo;
-};
+/* price: { type: String, required: true },
+    origin: { type: String, default:'Data Base' },
+    steps: { type: String, required: true },
+    diets: { type: String, required: true },
+    image: { type: String, required: true } 
+    spoonacularScore: { type: String, required: true },
+    healthScore*/
+
 
 (async function fillDb() {
-    const recipes = await getApiInfo();
-    recipes.forEach(el => console.log(el.title));
-    recipes.forEach(el => new Recipe({ title: el.title, summary: el.summary }).save());
-
+    recipesInDataBase = await Recipe.find();
+    if (recipesInDataBase.length < 3) {
+        const recipes = await getApiInfo();
+        recipes.forEach(el => new Recipe({
+            title: el.title, image: el.image, summary: el.summary, steps: el.steps,
+            diets: el.diets, spoonacularScore: el.spoonacularScore, healthScore: el.healthScore,
+            price: el.price, origin: el.origin
+        }).save());
+    }
 })()
 
 app.use(express.json());
