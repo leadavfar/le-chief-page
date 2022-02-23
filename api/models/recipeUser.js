@@ -3,7 +3,7 @@ const { Schema, model, } = require('mongoose');
 /* cada receta debe tener informacion de: Nombre, descripcion, puntaje de sabor y salud, 
  imagen, dietas, precio, creador, pasos con descripcion, ingredientes y herramientas */
 
-const RecipeUsersSchema = new Schema({
+const RecipeUserSchema = new Schema({
     title: { type: String, required: true },
     image: { type: String, required: true },
     summary: { type: String, required: true },
@@ -17,4 +17,4 @@ const RecipeUsersSchema = new Schema({
     timestamps: true
 });
 
-module.exports = model('RecipeUsers', RecipeUsersSchema);
+module.exports = model('RecipeUser', RecipeUserSchema);

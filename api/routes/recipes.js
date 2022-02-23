@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const axios = require("axios").default;
 
-const { getApiRecipes, postRecipe, putRecipe, deleteRecipe } = require('../controllers/recipes');
+const { getApiRecipes, getUsersRecipes, getAllRecipes, postRecipe, putRecipe, deleteRecipe } = require('../controllers/recipes');
 
 router.get('/', function (req, res) {
     res.send("<h1>Aca se vienen las recetas perrito malvado<h1>")
@@ -9,11 +9,15 @@ router.get('/', function (req, res) {
 
 router.get('/api-recipes', getApiRecipes);
 
-router.post('/post-recipe', postRecipe);
+router.get('/users-recipes', getUsersRecipes);
 
-router.put('/put-recipe', putRecipe);
+router.get('/all-recipes', getAllRecipes);
 
-router.delete('/delete-recipe', deleteRecipe);
+router.post('/post-user-recipe', postRecipe);
+
+router.put('/put-user-recipe/:id', putRecipe);
+
+router.delete('/delete-user-recipe/:id', deleteRecipe);
 
 
 module.exports = router;

@@ -9,6 +9,7 @@ const app = express();
 const axios = require("axios").default;
 const apk = process.env.API_KEY;
 const Recipe = require('./models/recipe');
+const RecipeUser = require('./models/recipeUser');
 const { db } = require('./models/recipe');
 
 const getApiInfo = async () => {
@@ -52,7 +53,6 @@ const getApiInfo = async () => {
 
 app.use(express.json());
 app.use(morgan("dev"));
-app.use('/api', routes);
+app.use('/', routes);
 
 module.exports = app;
-
