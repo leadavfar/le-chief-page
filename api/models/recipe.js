@@ -8,6 +8,7 @@ const RecipeSchema = new Schema({
     image: { type: String, required: true },
     summary: { type: String, required: true },
     diets: { type: Array, required: true },
+    cuisines: { type: Array, required: true },
     steps: { type: Array, required: true },
     price: { type: String, required: true },
     spoonacularScore: { type: String, required: true },

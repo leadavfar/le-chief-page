@@ -23,6 +23,7 @@ const getApiInfo = async () => {
             spoonacularScore: el.spoonacularScore,
             healthScore: el.healthScore,
             diets: el.diets,
+            cuisines: el.cuisines,
             price: el.pricePerServing,
             steps: el.analyzedInstructions.map(el => { return (el.steps.map(el => { return ({ number: el.number, step: el.step, ingredients: el.ingredients.map(el => (el.name)), equipment: el.equipment.map(el => (el.name)) }) })) }).flat()
         };
@@ -45,8 +46,8 @@ const getApiInfo = async () => {
         const recipes = await getApiInfo();
         recipes.forEach(el => new Recipe({
             title: el.title, image: el.image, summary: el.summary, steps: el.steps,
-            diets: el.diets, spoonacularScore: el.spoonacularScore, healthScore: el.healthScore,
-            price: el.price, origin: el.origin
+            diets: el.diets, cuisines: el.cuisines, spoonacularScore: el.spoonacularScore,
+            healthScore: el.healthScore, price: el.price, origin: el.origin
         }).save());
     }
 })()
