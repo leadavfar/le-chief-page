@@ -13,7 +13,7 @@ const RecipeUser = require('./models/recipeUser');
 const { db } = require('./models/recipe');
 
 const getApiInfo = async () => {
-    const apiUrl = await axios.get("https://api.spoonacular.com/recipes/complexSearch?number=3&addRecipeInformation=true&apiKey=" + apk);
+    const apiUrl = await axios.get("https://api.spoonacular.com/recipes/complexSearch?number=10&addRecipeInformation=true&apiKey=" + apk);
     const apiInfo = await apiUrl.data.results.map(el => {
         return {
             title: el.title,
@@ -42,7 +42,7 @@ const getApiInfo = async () => {
 
 (async function fillDb() {
     recipesInDataBase = await Recipe.find();
-    if (recipesInDataBase.length < 3) {
+    if (recipesInDataBase.length < 10) {
         const recipes = await getApiInfo();
         recipes.forEach(el => new Recipe({
             title: el.title, image: el.image, summary: el.summary, steps: el.steps,

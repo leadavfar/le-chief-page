@@ -1,0 +1,20 @@
+body{
+  margin: 0px;
+  background-image: url('../public/images/annie-spratt-R3LcfTvcGWY-unsplash (1).jpg');
+  background-image: no-repeat;
+  background-attachment: fixed;
+  background-image: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:white;
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+    text-decoration: none;
+    color: white;
+}

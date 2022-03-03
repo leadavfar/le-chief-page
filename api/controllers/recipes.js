@@ -19,6 +19,15 @@ recipeController.getAllRecipes = async (req, res) => {
     return res.status(200).send(allRecipes)
 };
 
+recipeController.getRecipeById = async (req, res) => {
+    const id = req.params.id;
+    const apiRecipes = await Recipe.find();
+    const userRecipes = await RecipeUser.find();
+    const allRecipes = apiRecipes.concat(userRecipes);
+    selectedRecipe = allRecipes.filter(el => el.id === id);
+    return res.status(200).send(selectedRecipe);
+};
+
 recipeController.postRecipe = async (req, res) => {
     const { title, image, summary, diets, steps, price, spoonacularScore, healthScore } = req.body;
     const newRecipeUser = new RecipeUser({ title, image, summary, diets, steps, price, spoonacularScore, healthScore });
