@@ -13,7 +13,7 @@ const RecipeSchema = new Schema({
     price: { type: String, required: true },
     spoonacularScore: { type: String, required: true },
     healthScore: { type: String, required: true },
-    origin: { type: String, default: 'Data Base' }
+    origin: { type: String, default: 'Spoonacular' }
 }, {
     timestamps: true
 });

@@ -13,10 +13,16 @@ recipeController.getUsersRecipes = async (req, res) => {
 };
 
 recipeController.getAllRecipes = async (req, res) => {
+    const title = req.query.title;
     const apiRecipes = await Recipe.find();
     const userRecipes = await RecipeUser.find();
     const allRecipes = apiRecipes.concat(userRecipes);
-    return res.status(200).send(allRecipes)
+    if (title) {
+        selectedRecipeTitle = allRecipes.filter(el => el.title.toLowerCase().includes(title.toLowerCase()));
+        return res.status(200).send(selectedRecipeTitle);
+    } else {
+        return res.status(200).send(allRecipes)
+    };
 };
 
 recipeController.getRecipeById = async (req, res) => {
@@ -27,6 +33,15 @@ recipeController.getRecipeById = async (req, res) => {
     selectedRecipe = allRecipes.filter(el => el.id === id);
     return res.status(200).send(selectedRecipe);
 };
+
+/* recipeController.getRecipeByTitle = async (req, res) => {
+
+    const apiRecipes = await Recipe.find();
+    const userRecipes = await RecipeUser.find();
+    const allRecipes = apiRecipes.concat(userRecipes);
+    selectedRecipeTitle = allRecipes.filter(el => el.title === title);
+    return res.status(200).send(selectedRecipeTitle);
+} */
 
 recipeController.postRecipe = async (req, res) => {
     const { title, image, summary, diets, steps, price, spoonacularScore, healthScore } = req.body;
