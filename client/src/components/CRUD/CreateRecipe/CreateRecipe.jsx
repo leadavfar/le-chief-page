@@ -18,7 +18,7 @@ export default function CreateRecipe() {
     });
 
     const [inputSteps, setInputSteps] = useState({
-        number: undefined,
+        number: 1,
         step: '',
         ingredients: [],
         equipment: []
@@ -71,6 +71,7 @@ export default function CreateRecipe() {
             equipment: [...inputSteps.equipment, stepsValues.equipmentValue]
         });
         setStepsValues({
+            ...stepsValues,
             equipmentValue: ''
         });
     };
@@ -82,14 +83,40 @@ export default function CreateRecipe() {
             ingredients: [...inputSteps.ingredients, stepsValues.ingredientValue]
         });
         setStepsValues({
+            ...stepsValues,
             ingredientValue: ''
         });
     };
 
+    function insertStep(e) {
+        e.preventDefault(e)
+        setInput({
+            ...input,
+            steps: [...input.steps, inputSteps]
+        })
+        setInputSteps({
+            number: inputSteps.number + 1,
+            step: '',
+            ingredients: [],
+            equipment: []
+        });
+    };
+
+    function deleteStep(step) {
+        setInput({
+            ...input,
+            steps: input.steps.filter((el) => el !== step)
+        });
+    };
 
     //SHOW DATA
     function showFormData(e) {
-        input.steps = [inputSteps];
+        let newNumber = 1;
+        for (let i = 0; i < input.steps.length; i++) {
+            input.steps[i].number = newNumber;
+            newNumber = newNumber + 1;
+        }
+        /* input.steps = [inputSteps]; */
         console.log('ALL DATA: ', input)
     }
 
@@ -175,9 +202,24 @@ export default function CreateRecipe() {
                             onChange={(e) => handleStepsValuesOnChange(e)} />
                         <button onClick={(e) => insertEquipmentValue(e)}>Add Equipment</button>
                     </form>
+
+                    <button onClick={(e) => insertStep(e)}>Add Step</button>
                 </form>
             </div>
+            <div>
+                <ol>
+                    {input.steps?.map((el) => {
+                        return (
+                            <li><div>
+                                <p>{el.step}</p>
+                                {el.ingredients?.length > 0 ? <p><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</p> : null}
+                                {el.equipment?.length > 0 ? <p><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</p> : null}
+                                <button onClick={() => deleteStep(el)}>x</button>
+                            </div></li>)
 
+                    })}
+                </ol>
+            </div>
             {/* price */}
             <div>
                 <label>Price: </label>
