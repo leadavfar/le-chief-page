@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getDiets, getCuisines } from "../../../actions";
 import NavBar from "../../NavBar/NavBar";
 
+
+
+
 export default function CreateRecipe() {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getDiets());
+        dispatch(getCuisines());
+    }, [dispatch]);
+
+    const diets = useSelector((state) => state.diets);
+    const cuisines = useSelector((state) => state.cuisines);
 
     //STATES//
     const [input, setInput] = useState({
@@ -164,9 +178,13 @@ export default function CreateRecipe() {
             {/* diets */}
             <div>
                 <label>Diets:</label>
-                <input name="diets" value='vegan' type="checkbox" onChange={(e) => handleSelect(e)} />Vegan
-                <input name="diets" value='lacto' type="checkbox" onChange={(e) => handleSelect(e)} />Lacto
-                <input name="cbipeliculas" type="checkbox" />Dairy Free
+                {diets?.map((el) => {
+                    return (
+                        <div>
+                            <input name={el} value={el} type="checkbox" onChange={(e) => handleSelect(e)} />{el}
+                        </div>
+                    )
+                })}
             </div>
 
             {/* steps */}
@@ -236,8 +254,11 @@ export default function CreateRecipe() {
                 <label>Cuisines: </label>
                 <select>
                     <option value="" selected disabled hidden>Cuisines</option>
-                    <option >cosita</option>
-                    <option >coso</option>
+                    {cuisines?.map((el) => {
+                        return (
+                            <option value={el}>{el}</option>
+                        )
+                    })}
                 </select>
             </div>
 
@@ -267,6 +288,6 @@ export default function CreateRecipe() {
 
             <button onClick={(e) => showFormData(e)}>SHOW IT!</button>
 
-        </div>
+        </div >
     )
 }

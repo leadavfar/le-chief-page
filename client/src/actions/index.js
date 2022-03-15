@@ -12,9 +12,9 @@ export function getRecipes() {
 
 export function getDiets() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/recipes/all-recipes');
+        var json = await axios.get('http://localhost:3002/diets');
         return dispatch({
-            type: 'GET_RECIPES',
+            type: 'GET_DIETS',
             payload: json.data
         })
     }
@@ -22,9 +22,9 @@ export function getDiets() {
 
 export function getCuisines() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/recipes/all-recipes');
+        var json = await axios.get('http://localhost:3002/cuisines');
         return dispatch({
-            type: 'GET_RECIPES',
+            type: 'GET_CUISINES',
             payload: json.data
         })
     }
