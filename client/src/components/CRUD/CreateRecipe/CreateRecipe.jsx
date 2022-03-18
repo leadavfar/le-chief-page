@@ -24,7 +24,7 @@ export default function CreateRecipe() {
         image: '',
         summary: '',
         diets: [],
-        cuisines: [],
+        cuisines: ['pedro'],
         steps: [],
         price: '',
         spoonacularScore: '',
@@ -79,13 +79,25 @@ export default function CreateRecipe() {
     };
 
     function handleCheckCuisines(e) {
-
-        setInput({
-            ...input,
-            cuisines: [...input.cuisines, e.target.value]
-        })
-        input.cuisines.filter(el => el === e.target.value);
-    };
+        if (input.cuisines.length > 0) {
+            const newArray = input.cuisines.filter(el => el !== e.target.value)
+            setInput({
+                ...input,
+                cuisines: [input.cuisines, newArray]
+            });
+        } else {
+            setInput({
+                ...input,
+                cuisines: [...input.cuisines, e.target.value]
+            })
+        }
+    }
+    /* setInput({
+        ...input,
+        cuisines: [...input.cuisines, e.target.value]
+    }) */
+    /* input.cuisines.filter(el => el === e.target.value);
+}; */
 
 
     function insertEquipmentValue(e) {
