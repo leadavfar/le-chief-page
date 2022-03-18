@@ -119,7 +119,7 @@ export default function Recipes() {
                     })}
                 </select>
 
-                {/* FILTRR POR DIETAS */}
+                {/* FILTRO POR DIETAS */}
                 <select onChange={e => handleFilterByDiet(e)}>
                     <option value="" selected disabled hidden>Diets</option>
                     <option value='all'>All</option>

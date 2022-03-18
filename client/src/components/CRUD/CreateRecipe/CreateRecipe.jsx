@@ -71,12 +71,22 @@ export default function CreateRecipe() {
 
     //INSERT TO ARRAYS
 
-    function handleSelect(e) {
+    function handleCheckDiets(e) {
         setInput({
             ...input,
             diets: [...input.diets, e.target.value]
         })
     };
+
+    function handleCheckCuisines(e) {
+
+        setInput({
+            ...input,
+            cuisines: [...input.cuisines, e.target.value]
+        })
+        input.cuisines.filter(el => el === e.target.value);
+    };
+
 
     function insertEquipmentValue(e) {
         console.log(inputSteps)
@@ -134,6 +144,7 @@ export default function CreateRecipe() {
         console.log('ALL DATA: ', input)
     }
 
+
     return (
         <div>
             <NavBar />
@@ -181,7 +192,7 @@ export default function CreateRecipe() {
                 {diets?.map((el) => {
                     return (
                         <div>
-                            <input name={el} value={el} type="checkbox" onChange={(e) => handleSelect(e)} />{el}
+                            <input key={el} name={el} value={el} type="checkbox" onChange={(e) => handleCheckDiets(e)} />{el}
                         </div>
                     )
                 })}
@@ -252,14 +263,14 @@ export default function CreateRecipe() {
             {/* cuisines */}
             <div>
                 <label>Cuisines: </label>
-                <select>
-                    <option value="" selected disabled hidden>Cuisines</option>
-                    {cuisines?.map((el) => {
-                        return (
-                            <option value={el}>{el}</option>
-                        )
-                    })}
-                </select>
+
+                {cuisines?.map((el) => {
+                    return (
+                        <div>
+                            <input key={el} name={el} value={el} type="checkbox" onChange={(e) => handleCheckCuisines(e)} />{el}
+                        </div>
+                    )
+                })}
             </div>
 
             {/* spoonacular score */}
