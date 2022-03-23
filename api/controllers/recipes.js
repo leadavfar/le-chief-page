@@ -43,11 +43,15 @@ recipeController.getRecipeById = async (req, res) => {
     return res.status(200).send(selectedRecipeTitle);
 } */
 
-recipeController.postRecipe = async (req, res) => {
-    const { title, image, summary, diets, steps, price, spoonacularScore, healthScore } = req.body;
-    const newRecipeUser = new RecipeUser({ title, image, summary, diets, steps, price, spoonacularScore, healthScore });
-    await newRecipeUser.save();
-    return res.status(200).send('Recipe posted');
+recipeController.postRecipe = async (req, res, next) => {
+    try {
+        const { title, image, summary, diets, steps, price, spoonacularScore, healthScore } = req.body;
+        const newRecipeUser = new RecipeUser({ title, image, summary, diets, steps, price, spoonacularScore, healthScore });
+        await newRecipeUser.save();
+        return res.status(200).json(newRecipeUser);
+    } catch (error) {
+        next(error);
+    }
 };
 
 recipeController.putRecipe = async (req, res) => {

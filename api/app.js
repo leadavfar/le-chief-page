@@ -2,6 +2,7 @@ require('dotenv').config();
 require('./database');
 require('dotenv');
 
+const cors = require('cors')
 const express = require("express");
 const morgan = require("morgan");
 const routes = require("./routes");
@@ -53,6 +54,7 @@ const getApiInfo = async () => {
 })()
 
 app.use(express.json());
+app.use(cors())
 app.use(morgan("dev"));
 app.use('/', routes);
 

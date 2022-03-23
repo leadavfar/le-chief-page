@@ -10,6 +10,7 @@ export default function NavBar() {
                 <ul>
                     <li> <Link to="/recipes">Recipes</Link></li>
                     {/* <li> <Link to="/recipes">Recipes</Link></li> */}
+                    <li><Link to= "/crud">Manage Recipes</Link></li>
                 </ul>
             </nav>
         </div>

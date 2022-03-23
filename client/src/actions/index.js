@@ -10,6 +10,16 @@ export function getRecipes() {
     }
 }
 
+export function getUsersRecipes() {
+    return async function (dispatch) {
+        var json = await axios.get('http://localhost:3002/recipes/users-recipes');
+        return dispatch({
+            type: 'GET_USERS_RECIPES',
+            payload: json.data
+        })
+    }
+}
+
 export function getDiets() {
     return async function (dispatch) {
         var json = await axios.get('http://localhost:3002/diets');
@@ -91,6 +101,36 @@ export function filterRecipesByOrigin(payload) {
         return dispatch({
             type: 'FILTER_RECIPES_BY_ORIGIN',
             payload
+        })
+    }
+}
+
+export function postRecipe(payload) {
+    return async function (dispatch) {
+        const json = await axios.post('http://localhost:3002/recipes/post-user-recipe', payload);
+        return dispatch({
+            type: 'POST_RECIPE',
+            payload: json
+        })
+    }
+}
+
+export function putRecipe(id, payload) {
+    return async function (dispatch) {
+        const json = await axios.put('http://localhost:3002/recipes/put-user-recipe/' + id, payload);
+        return dispatch({
+            type: 'PUT_RECIPE',
+            payload: json
+        })
+    }
+}
+
+export function deleteRecipe(id) {
+    return async function (dispatch) {
+        const json = await axios.delete('http://localhost:3002/recipes/delete-user-recipe/' + id);
+        return dispatch({
+            type: 'DELETE_RECIPE',
+            payload: json
         })
     }
 }

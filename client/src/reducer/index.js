@@ -1,6 +1,7 @@
 const initialState = {
     recipes: [],
     allRecipes: [],
+    usersRecipes: [],
     diets: [],
     cuisines: [],
     recipeDetail: []
@@ -13,6 +14,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 recipes: action.payload,
                 allRecipes: action.payload
+            };
+
+        case "GET_USERS_RECIPES":
+            return {
+                ...state,
+                usersRecipes: action.payload
             };
 
         case "GET_DIETS":
@@ -115,6 +122,21 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 recipes: sortedArrPrice
+            };
+
+        case "POST_RECIPE":
+            return {
+                ...state
+            };
+
+            case "PUT_RECIPE":
+            return {
+                ...state
+            };
+
+        case "DELETE_RECIPE":
+            return {
+                ...state
             };
 
         default:
