@@ -1,6 +1,6 @@
 body{
   margin: 0px;
-  background-image: url('../public/images/annie-spratt-R3LcfTvcGWY-unsplash (1).jpg');
+  background-image: url('../public/images/annie-spratt-R3LcfTvcGWY-unsplash (1)2.jpg');
   background-image: no-repeat;
   background-attachment: fixed;
   background-image: center;
@@ -9,6 +9,7 @@ body{
   -o-background-size: cover;
   background-size: cover;
   color:white;
+/*   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
 }
 
 a:link,

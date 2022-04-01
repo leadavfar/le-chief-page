@@ -5,7 +5,7 @@ import Styles from './NavBar.module.css';
 export default function NavBar() {
     return (
         <div className={Styles.container}>
-            <nav>
+            <nav className={Styles.navbar}>
                 <div><Link to="/">Le Chief Page</Link></div>
                 <ul>
                     <li> <Link to="/recipes">Recipes</Link></li>

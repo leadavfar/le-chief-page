@@ -76,90 +76,99 @@ export default function Recipes() {
         setCurrentPage(1);
     };
 
-
-
-    console.log('RECIPES: ', recipes.length)
-
     return (
-        <div>
+        <div className={Styles.container_all}>
             {/* Navbar */}
             <div>
                 <NavBar />
             </div>
 
-            {/* Filters, orders and search */}
-            <div>
-                <SearchBar />
-                <button onClick={e => handleClickReload(e)}>
-                    Reload Recipes
-                </button>
 
-                {/* ORDEN ALFABETICO */}
-                <select onChange={e => handleSortName(e)}>
-                    <option value="" selected disabled hidden>Name</option>
-                    <option value='asc'>A-Z</option>
-                    <option value='desc'>Z-A</option>
-                </select>
+            <div className={Styles.filters_recipes}>
 
-                {/* ORDEN POR PRECIO */}
-                <select onChange={e => handleSortPrice(e)}>
-                    <option value="" selected disabled hidden>Budget $</option>
-                    <option value='low'>Low to High</option>
-                    <option value='high'>High to Low</option>
-                </select>
+                {/* Filters, orders and search */}
+                <div className={Styles.filters_container}>
 
-                {/* FILTRO POR COCINAS */}
-                <select onChange={e => handleFilterByCuisine(e)}>
-                    <option value="" selected disabled hidden>Cuisines</option>
-                    <option value='all'>All</option>
-                    {cuisines?.map((el) => {
+                    {/* Title */}
+                    <div>
+                        <h1>Recipes</h1>
+                    </div>
+
+                    <SearchBar />
+                    <button onClick={e => handleClickReload(e)}>
+                        Reload Recipes
+                    </button>
+
+                    {/* ORDEN ALFABETICO */}
+                    <select onChange={e => handleSortName(e)}>
+                        <option value="" selected disabled hidden>Name</option>
+                        <option value='asc'>A-Z</option>
+                        <option value='desc'>Z-A</option>
+                    </select>
+
+                    {/* ORDEN POR PRECIO */}
+                    <select onChange={e => handleSortPrice(e)}>
+                        <option value="" selected disabled hidden>Budget $</option>
+                        <option value='low'>Low to High</option>
+                        <option value='high'>High to Low</option>
+                    </select>
+
+                    {/* FILTRO POR COCINAS */}
+                    <select onChange={e => handleFilterByCuisine(e)}>
+                        <option value="" selected disabled hidden>Cuisines</option>
+                        <option value='all'>All</option>
+                        {cuisines?.map((el) => {
+                            return (
+                                <option value={el}>{el}</option>
+                            )
+                        })}
+                    </select>
+
+                    {/* FILTRO POR DIETAS */}
+                    <select onChange={e => handleFilterByDiet(e)}>
+                        <option value="" selected disabled hidden>Diets</option>
+                        <option value='all'>All</option>
+                        {diets?.map((el) => {
+                            return (
+                                <option value={el}>{el}</option>
+                            )
+                        })}
+                    </select>
+
+                    {/* FILTRO POR CREADOR */}
+                    <select onChange={e => handleFilterByOrigin(e)}>
+                        <option value="" selected disabled hidden>Origin</option>
+                        <option value='all'>All</option>
+                        <option value='users'>Users</option>
+                        <option value='spoonacular'>Spoonacular</option>
+                    </select>
+                </div>
+
+
+                {/* Recipes render */}
+                <div className={Styles.recipe_container}>
+                    {currentRecipes?.map((el) => {
                         return (
-                            <option value={el}>{el}</option>
+                            <div key={el._id}>
+                                <RecipeCard title={el.title} image={el.image} diets={el.diets} price={el.price} id={el._id} />
+                            </div>
                         )
                     })}
-                </select>
 
-                {/* FILTRO POR DIETAS */}
-                <select onChange={e => handleFilterByDiet(e)}>
-                    <option value="" selected disabled hidden>Diets</option>
-                    <option value='all'>All</option>
-                    {diets?.map((el) => {
-                        return (
-                            <option value={el}>{el}</option>
-                        )
-                    })}
-                </select>
+                    {/* Paged */}
+                    <div>
+                        <Paged
+                            className={Styles.paged}
+                            recipesInPage={recipesInPage}
+                            recipes={recipes.length}
+                            paged={paged} />
+                    </div>
+                </div>
 
-                {/* FILTRO POR CREADOR */}
-                <select onChange={e => handleFilterByOrigin(e)}>
-                    <option value="" selected disabled hidden>Origin</option>
-                    <option value='all'>All</option>
-                    <option value='users'>Users</option>
-                    <option value='spoonacular'>Spoonacular</option>
-                </select>
+
             </div>
-
-            {/* Title */}
-            <div>
-                <h1>Recipes</h1>
-            </div>
-
-            {/* Recipes render */}
-            <div className={Styles.recipe_container}>
-                {currentRecipes?.map((el) => {
-                    return (
-                        <div key={el._id}>
-                            <RecipeCard title={el.title} image={el.image} diets={el.diets} price={el.price} id={el._id} />
-                        </div>
-                    )
-                })}
-            </div>
-
-            {/* Paged */}
-            <Paged
-                recipesInPage={recipesInPage}
-                recipes={recipes.length}
-                paged={paged} />
         </div>
+
+
     );
 };

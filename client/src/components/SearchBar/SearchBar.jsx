@@ -24,13 +24,14 @@ export default function SearchBar() {
     };
 
     return (
-        <div>
+        <div className={Styles.container_search}>
             <input
                 value={title}
                 type='text'
                 placeholder="Search Recipe..."
                 onChange={(e) => handleInputChange(e)} />
             <button
+            className={Styles.button_search}
                 type="submit"
                 onClick={(e) => handleSubmit(e)}>
                 Search

@@ -1,4 +1,89 @@
-.recipe_container{
+.container_all {}
+
+.filters_recipes {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.recipe_container {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
+    /* grid-template-columns: 33% 33% 33%; */
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-top: 70px;
+}
+
+
+.filters_container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+
+.container_all select {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bolder;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    transition: background-color 0.25s;
+    margin-bottom: 15px;
+    font-size: medium;
+}
+
+.container_all select:hover {
+    background: black;
+}
+
+.container_all select:focus {
+    outline: none;
+}
+
+.container_all button {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bolder;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    transition: background-color 0.25s;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-size: medium;
+}
+
+.container_all button:hover {
+    background: black;
+}
+
+.container_all button:focus {
+    outline: none;
+}
+
+.container_all input {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bolder;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    transition: background-color 0.25s;
+    margin-bottom: 15px;
+    font-size: medium;
+}
+
+.container_all input:hover {
+    background: black;
+}
+
+.container_all input:focus {
+    outline: none;
 }
