@@ -6,9 +6,32 @@
 
 .navbar {
     display: flex;
+    align-items: center;
 }
 
 .navbar ul li {
     display: inline;
     cursor: pointer;
+}
+
+.logo {
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+
+    margin-right: 10px;
+}
+
+.links {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 60px;
+}
+
+.links h3 {
+    margin-left: 20px;
 }
