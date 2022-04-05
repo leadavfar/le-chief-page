@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiets, getCuisines, postRecipe } from "../../../actions";
 import NavBar from "../../NavBar/NavBar";
-
-
+import Styles from './CreateRecipe.module.css';
 
 
 export default function CreateRecipe() {
@@ -179,156 +178,165 @@ export default function CreateRecipe() {
             <NavBar />
             <h1>Create Recipe</h1>
 
-            <form onSubmit={(e) => handleSubmit(e)}>
-                {/* title */}
-                <div>
+            <div className={Styles.containerFinal}>
 
-                    <label>Title:</label>
-                    <input
-                        type="text"
-                        value={input.title}
-                        name="title"
-                        required="true"
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </div>
+                <form onSubmit={(e) => handleSubmit(e)}
+                    className={Styles.containerForm}>
+                    {/* title */}
+                    <div >
 
-                {/* image */}
-                <div>
-                    <label>Image:</label>
-                    <input
-                        type='text'
-                        name='image'
-                        value={input.image}
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </div>
+                        <label>Title: </label>
+                        <input
+                            type="text"
+                            value={input.title}
+                            name="title"
+                            required="true"
+                            onChange={(e) => handleOnChange(e)}
+                        />
+                    </div>
 
-                {/* summary */}
-                <div>
-                    <label>Summary:</label>
-                    <textarea
-                        rows={10}
-                        type='text'
-                        name='summary'
-                        required="true"
-                        value={input.summary}
-                        onChange={(e) => handleOnChange(e)} />
-                </div>
-
-                {/* diets */}
-                <div>
-                    <label>Diets:</label>
-                    {diets?.map((el) => {
-                        return (
-                            <div>
-                                <input key={el} name={el} value={el} type="checkbox" onChange={(e) => handleCheckDiets(e)} />{el}
-                            </div>
-                        )
-                    })}
-                </div>
-
-                {/* steps */}
-                <div>
-                    <form>
-                        <label>Step:</label>
-                        <textarea
-                            rows={5}
-                            required='true'
+                    {/* image */}
+                    <div>
+                        <label>Image: </label>
+                        <input
                             type='text'
-                            name='step'
-                            value={inputSteps.step}
-                            onChange={(e) => handleStepsOnChange(e)} />
+                            name='image'
+                            value={input.image}
+                            onChange={(e) => handleOnChange(e)}
+                        />
+                    </div>
 
+                    {/* summary */}
+                    <div>
+                        <p>Summary</p>
+                        <textarea
+                            rows={10}
+                            type='text'
+                            name='summary'
+                            required="true"
+                            value={input.summary}
+                            onChange={(e) => handleOnChange(e)} />
+                    </div>
+
+                    {/* diets */}
+                    <div>
+                        <label>Diets: </label>
+                        <div className={Styles.checks}>
+                            {diets?.map((el) => {
+                                return (
+                                    <div>
+                                        <input key={el} name={el} value={el} type="checkbox" onChange={(e) => handleCheckDiets(e)} />{el}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+
+                    {/* steps */}
+                    <div>
                         <form>
-                            <label>Ingredients: </label>
-                            <input
+                            <h2>Steps</h2>
+                            <p>Description </p>
+                            <textarea
+                                rows={5}
                                 required='true'
                                 type='text'
-                                name='ingredientValue'
-                                value={stepsValues.ingredientValue}
-                                onChange={(e) => handleStepsValuesOnChange(e)} />
-                            <button onClick={(e) => insertIngredientValue(e)}>Add Ingredient</button>
+                                name='step'
+                                value={inputSteps.step}
+                                onChange={(e) => handleStepsOnChange(e)} />
+
+                            <form>
+                                <label>Ingredients: </label>
+                                <input
+                                    required='true'
+                                    type='text'
+                                    name='ingredientValue'
+                                    value={stepsValues.ingredientValue}
+                                    onChange={(e) => handleStepsValuesOnChange(e)} />
+                                <button onClick={(e) => insertIngredientValue(e)}>Add Ingredient</button>
+                            </form>
+
+                            <form>
+                                <label>Equipment: </label>
+                                <input
+                                    required='true'
+                                    type='text'
+                                    name='equipmentValue'
+                                    value={stepsValues.equipmentValue}
+                                    onChange={(e) => handleStepsValuesOnChange(e)} />
+                                <button onClick={(e) => insertEquipmentValue(e)}>Add Equipment</button>
+                            </form>
+
+                            <button onClick={(e) => insertStep(e)}>Add Step</button>
                         </form>
+                    </div>
+                    <div>
+                        <ol>
+                            {input.steps?.map((el) => {
+                                return (
+                                    <li><div>
+                                        <label>{el.step}</label>
+                                        {el.ingredients?.length > 0 ? <label><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</label> : null}
+                                        {el.equipment?.length > 0 ? <label><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</label> : null}
+                                        <button onClick={() => deleteStep(el)}>x</button>
+                                    </div></li>)
 
-                        <form>
-                            <label>Equipment:</label>
-                            <input
-                                required='true'
-                                type='text'
-                                name='equipmentValue'
-                                value={stepsValues.equipmentValue}
-                                onChange={(e) => handleStepsValuesOnChange(e)} />
-                            <button onClick={(e) => insertEquipmentValue(e)}>Add Equipment</button>
-                        </form>
+                            })}
+                        </ol>
+                    </div>
+                    {/* price */}
+                    <div>
+                        <label>Price: </label>
+                        <input
+                            type='text'
+                            name='price'
+                            required="true"
+                            value={input.price}
+                            onChange={(e) => handleOnChange(e)} />
+                    </div>
 
-                        <button onClick={(e) => insertStep(e)}>Add Step</button>
-                    </form>
-                </div>
-                <div>
-                    <ol>
-                        {input.steps?.map((el) => {
-                            return (
-                                <li><div>
-                                    <p>{el.step}</p>
-                                    {el.ingredients?.length > 0 ? <p><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</p> : null}
-                                    {el.equipment?.length > 0 ? <p><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</p> : null}
-                                    <button onClick={() => deleteStep(el)}>x</button>
-                                </div></li>)
+                    {/* cuisines */}
+                    <div>
+                        <label>Cuisines: </label>
 
-                        })}
-                    </ol>
-                </div>
-                {/* price */}
-                <div>
-                    <label>Price: </label>
-                    <input
-                        type='text'
-                        name='price'
-                        required="true"
-                        value={input.price}
-                        onChange={(e) => handleOnChange(e)} />
-                </div>
+                        <div className={Styles.checks}>
+                            {cuisines?.map((el) => {
+                                return (
+                                    <div>
+                                        <input key={el} name={el} value={el} type="checkbox" onChange={(e) => handleCheckCuisines(e)} />{el}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
 
-                {/* cuisines */}
-                <div>
-                    <label>Cuisines: </label>
+                    {/* spoonacular score */}
+                    <div>
+                        <label>Spoonacular Score: </label>
+                        <input
+                            type="text"
+                            value={input.spoonacularScore}
+                            name="spoonacularScore"
+                            required="true"
+                            onChange={(e) => handleOnChange(e)}
+                        />
+                    </div>
 
-                    {cuisines?.map((el) => {
-                        return (
-                            <div>
-                                <input key={el} name={el} value={el} type="checkbox" onChange={(e) => handleCheckCuisines(e)} />{el}
-                            </div>
-                        )
-                    })}
-                </div>
+                    {/* health score */}
+                    <div>
+                        <label>Health Score: </label>
+                        <input
+                            type="text"
+                            value={input.healthScore}
+                            name="healthScore"
+                            required="true"
+                            onChange={(e) => handleOnChange(e)}
+                        />
+                    </div>
 
-                {/* spoonacular score */}
-                <div>
-                    <label>Spoonacular Score: </label>
-                    <input
-                        type="text"
-                        value={input.spoonacularScore}
-                        name="spoonacularScore"
-                        required="true"
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </div>
-
-                {/* health score */}
-                <div>
-                    <label>Health Score: </label>
-                    <input
-                        type="text"
-                        value={input.healthScore}
-                        name="healthScore"
-                        required="true"
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </div>
-
-                <button type="submit">CREATE</button>
-            </form>
+                    <button type="submit">CREATE</button>
+                </form>
+            </div>
         </div >
     )
 }

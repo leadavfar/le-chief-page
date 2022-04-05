@@ -1,0 +1,103 @@
+.containerFinal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerForm {
+    background: rgba(0, 0, 0, 0.7);
+    /* border-radius: 1%;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2); */
+    padding: 2%;
+    width: 50%;
+}
+
+.containerForm input {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bolder;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.25s;
+    font-size: medium;
+}
+
+.containerForm input:hover {
+    background: black;
+}
+
+.containerForm input:focus {
+    outline: none;
+}
+
+.containerForm textarea {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bolder;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.25s;
+    font-size: medium;
+    width: 80%;
+    resize: none;
+    padding: 2%;
+}
+
+.containerForm textarea:hover {
+    background: black;
+}
+
+.containerForm textarea:focus {
+    outline: none;
+}
+
+.containerForm select {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bolder;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.25s;
+    font-size: medium;
+}
+
+.containerForm select:hover {
+    background: black;
+}
+
+.containerForm select:focus {
+    outline: none;
+}
+
+.containerForm button {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+   /*  font-weight: bolder; */
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.25s;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.containerForm button:hover {
+    background: black;
+}
+
+.containerForm button:focus {
+    outline: none;
+}
+
+.checks{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
