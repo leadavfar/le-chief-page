@@ -32,23 +32,50 @@ export default function RecipeDetail(props) {
             <div>
                 <NavBar />
             </div>
-            <h1>{selectedRecipe[0]?.title}</h1>
-            <img src={selectedRecipe[0]?.image} />
-            <p dangerouslySetInnerHTML={{ __html: selectedRecipe[0]?.summary }}></p>
-            <h3>Diets: {selectedRecipe[0]?.diets?.map(el => el + ', ')}</h3>
-            <h3>Cuisines: {selectedRecipe[0]?.cuisines?.map(el => el + ', ')}</h3>
-            <h3>Estimated Budget: ${selectedRecipe[0]?.price}</h3>
-            <h4>Health Score: {selectedRecipe[0]?.healthScore} - Sponacular Score: {selectedRecipe[0]?.spoonacularScore}</h4>
-            <h1>Steps:</h1>
-            {selectedRecipe[0]?.steps?.map((el) => {
-                return (
-                    <div>
-                        <p><b>Step {el.number}:</b> {el.step}</p>
-                        {el.ingredients?.length > 0 ? <p><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</p> : null}
-                        {el.equipment?.length > 0 ? <p><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</p> : null}
+
+            <div className={Styles.container}>
+                <div className={Styles.background}>
+                    <div className={Styles.recipe}>
+
+                        <div className={Styles.image}>
+                            <h1>{selectedRecipe[0]?.title}</h1>
+                            <img src={selectedRecipe[0]?.image}/>
+                        </div>
+
+                        <div className={Styles.summary}>
+                            <p dangerouslySetInnerHTML={{ __html: selectedRecipe[0]?.summary }}></p>
+                        </div>
+
+                        <hr />
+
+                        <div className={Styles.steps}>
+
+                            <div className={Styles.features}>
+                                <p><b>Diets: </b>{selectedRecipe[0]?.diets?.map(el => el + ', ')}</p>
+                                <p><b>Cuisines: </b>{selectedRecipe[0]?.cuisines?.map(el => el + ', ')}</p>
+                                <p><b>Estimated Budget: </b>${selectedRecipe[0]?.price}</p>
+                                <p><b>Health Score: </b>{selectedRecipe[0]?.healthScore}</p>
+                                <p><b>Sponacular Score: </b>{selectedRecipe[0]?.spoonacularScore}</p>
+                            </div>
+
+                            <hr />
+
+                            <h1>Steps</h1>
+                            {selectedRecipe[0]?.steps?.map((el) => {
+                                return (
+                                    <div className={Styles.step}>
+                                        <p><b>Step {el.number}</b></p>
+                                        <p><b>Description: </b>{el.step}</p>
+                                        {el.ingredients?.length > 0 ? <p><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</p> : null}
+                                        {el.equipment?.length > 0 ? <p><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</p> : null}
+                                    </div>
+                                )
+                            })}
+                        </div>
+
                     </div>
-                )
-            })}
+                </div>
+            </div>
         </div>
     )
 }

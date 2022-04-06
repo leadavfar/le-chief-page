@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.container hr {
+    border: solid rgba(255, 255, 255, 0.2);
+}
+
+.container img {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-width: 5px;
+    text-align: center;
+    width: 312px;
+    height: 231px;
+}
+
+.background {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.6);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    padding-bottom: 30px;
+}
+
+.recipe {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.image {
+    text-align: center;
+}
+
+.steps {
+    text-align: left;
+}
+
+.features {
+    font-size: large;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 0px 50px;
+}
+
+.step {
+    background: black;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    padding-left: 30px;
+}

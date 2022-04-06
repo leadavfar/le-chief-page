@@ -10,8 +10,16 @@ export default function Home() {
                 <NavBar />
             </div>
             <div className={Styles.container}>
-                {/* <h1>LE CHIEF PAGE</h1> */}
-                <img src={image} height='600px' alt='image not found' />
+                {/* <img src={image} height='600px' alt='image not found' />
+                <div className={Styles.image_text}>
+                    caca
+                </div> */}
+                <h1>
+                    Welcome to Le Chief Page
+                </h1>
+                <p>
+                    In this app you can get many recipes from Spoonacular and many users, also you can create your own recipes
+                </p>
             </div>
         </div>
     )
