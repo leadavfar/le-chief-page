@@ -182,10 +182,14 @@ export default function CreateRecipe() {
 
                 <form onSubmit={(e) => handleSubmit(e)}
                     className={Styles.containerForm}>
-                    {/* title */}
-                    <div >
 
-                        <label>Title: </label>
+                    <div className={Styles.title}>
+                        <h1>{input.title}</h1>
+                    </div>
+
+                    {/* title */}
+                    <div className={Styles.field}>
+                        <label> <b>Title: </b></label>
                         <input
                             type="text"
                             value={input.title}
@@ -196,8 +200,8 @@ export default function CreateRecipe() {
                     </div>
 
                     {/* image */}
-                    <div>
-                        <label>Image: </label>
+                    <div className={Styles.field}>
+                        <label><b>Image: </b></label>
                         <input
                             type='text'
                             name='image'
@@ -207,8 +211,8 @@ export default function CreateRecipe() {
                     </div>
 
                     {/* summary */}
-                    <div>
-                        <p>Summary</p>
+                    <div className={Styles.field}>
+                        <p><b>Summary</b></p>
                         <textarea
                             rows={10}
                             type='text'
@@ -219,8 +223,8 @@ export default function CreateRecipe() {
                     </div>
 
                     {/* diets */}
-                    <div>
-                        <label>Diets: </label>
+                    <div className={Styles.field}>
+                        <label><b> Diets: </b></label>
                         <div className={Styles.checks}>
                             {diets?.map((el) => {
                                 return (
@@ -232,61 +236,9 @@ export default function CreateRecipe() {
                         </div>
                     </div>
 
-                    {/* steps */}
-                    <div>
-                        <form>
-                            <h2>Steps</h2>
-                            <p>Description </p>
-                            <textarea
-                                rows={5}
-                                required='true'
-                                type='text'
-                                name='step'
-                                value={inputSteps.step}
-                                onChange={(e) => handleStepsOnChange(e)} />
-
-                            <form>
-                                <label>Ingredients: </label>
-                                <input
-                                    required='true'
-                                    type='text'
-                                    name='ingredientValue'
-                                    value={stepsValues.ingredientValue}
-                                    onChange={(e) => handleStepsValuesOnChange(e)} />
-                                <button onClick={(e) => insertIngredientValue(e)}>Add Ingredient</button>
-                            </form>
-
-                            <form>
-                                <label>Equipment: </label>
-                                <input
-                                    required='true'
-                                    type='text'
-                                    name='equipmentValue'
-                                    value={stepsValues.equipmentValue}
-                                    onChange={(e) => handleStepsValuesOnChange(e)} />
-                                <button onClick={(e) => insertEquipmentValue(e)}>Add Equipment</button>
-                            </form>
-
-                            <button onClick={(e) => insertStep(e)}>Add Step</button>
-                        </form>
-                    </div>
-                    <div>
-                        <ol>
-                            {input.steps?.map((el) => {
-                                return (
-                                    <li><div>
-                                        <label>{el.step}</label>
-                                        {el.ingredients?.length > 0 ? <label><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</label> : null}
-                                        {el.equipment?.length > 0 ? <label><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</label> : null}
-                                        <button onClick={() => deleteStep(el)}>x</button>
-                                    </div></li>)
-
-                            })}
-                        </ol>
-                    </div>
                     {/* price */}
-                    <div>
-                        <label>Price: </label>
+                    <div className={Styles.field}>
+                        <label><b>Price: </b></label>
                         <input
                             type='text'
                             name='price'
@@ -296,9 +248,8 @@ export default function CreateRecipe() {
                     </div>
 
                     {/* cuisines */}
-                    <div>
-                        <label>Cuisines: </label>
-
+                    <div className={Styles.field}>
+                        <label><b>Cuisines: </b></label>
                         <div className={Styles.checks}>
                             {cuisines?.map((el) => {
                                 return (
@@ -311,8 +262,8 @@ export default function CreateRecipe() {
                     </div>
 
                     {/* spoonacular score */}
-                    <div>
-                        <label>Spoonacular Score: </label>
+                    <div className={Styles.field}>
+                        <label><b>Spoonacular Score: </b></label>
                         <input
                             type="text"
                             value={input.spoonacularScore}
@@ -323,8 +274,8 @@ export default function CreateRecipe() {
                     </div>
 
                     {/* health score */}
-                    <div>
-                        <label>Health Score: </label>
+                    <div className={Styles.field}>
+                        <label><b>Health Score: </b></label>
                         <input
                             type="text"
                             value={input.healthScore}
@@ -334,7 +285,67 @@ export default function CreateRecipe() {
                         />
                     </div>
 
-                    <button type="submit">CREATE</button>
+                    {/* steps */}
+
+                    <div className={Styles.field}>
+                        <hr />
+                        <form>
+                            <h2>Steps</h2>
+                            <p><b>Description </b></p>
+                            <textarea
+                                rows={5}
+                                required='true'
+                                type='text'
+                                name='step'
+                                value={inputSteps.step}
+                                onChange={(e) => handleStepsOnChange(e)} />
+
+                            <form className={Styles.field}>
+                                <label><b>Ingredients: </b></label>
+                                <input
+                                    required='true'
+                                    type='text'
+                                    name='ingredientValue'
+                                    value={stepsValues.ingredientValue}
+                                    onChange={(e) => handleStepsValuesOnChange(e)} />
+                                <button onClick={(e) => insertIngredientValue(e)}>Add Ingredient</button>
+                            </form>
+
+                            <form className={Styles.field}>
+                                <label><b>Equipment: </b></label>
+                                <input
+                                    required='true'
+                                    type='text'
+                                    name='equipmentValue'
+                                    value={stepsValues.equipmentValue}
+                                    onChange={(e) => handleStepsValuesOnChange(e)} />
+                                <button onClick={(e) => insertEquipmentValue(e)}>Add Equipment</button>
+                            </form>
+
+                            <div className={Styles.addButtonContainer}>
+                                <button className={Styles.addStep} onClick={(e) => insertStep(e)}>Add Step</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div>
+                        {input.steps?.map((el) => {
+                            return (
+                                <div className={Styles.step}>
+                                    <p><b>Step {el.number}</b></p>
+                                    <p><b>Description: </b>{el.step}</p>
+                                    {el.ingredients?.length > 0 ? <p><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</p> : null}
+                                    {el.equipment?.length > 0 ? <p><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</p> : null}
+                                    <div className={Styles.buttonDelete}>
+                                        <button onClick={() => deleteStep(el)}>x</button>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className={Styles.createButton}>
+                        <button className={Styles.create} type="submit">CREATE</button>
+                    </div>
                 </form>
             </div>
         </div >

@@ -1,7 +1,8 @@
-.containerFinal{
+.containerFinal {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .containerForm {
@@ -10,19 +11,38 @@
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.2); */
     padding: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
     width: 50%;
+    border: solid rgba(255, 255, 255, 0.2);
 }
+
+.step {
+    background: black;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    padding-left: 30px;
+}
+
+.containerForm label {
+    display: table-cell;
+    text-align: right;
+}
+
+/*.containerForm input {
+  display: table-cell;
+} */
 
 .containerForm input {
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-weight: bolder;
-    padding: 5px;
     background: rgba(0, 0, 0, 0.6);
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.2);
     transition: background-color 0.25s;
     font-size: medium;
+    margin-right: 15px;
 }
 
 .containerForm input:hover {
@@ -36,7 +56,6 @@
 .containerForm textarea {
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-weight: bolder;
     padding: 5px;
     background: rgba(0, 0, 0, 0.6);
     border-style: solid;
@@ -76,11 +95,10 @@
     outline: none;
 }
 
-.containerForm button {
+.containerFinal button {
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-   /*  font-weight: bolder; */
-    padding: 5px;
+    /*  font-weight: bolder; */
     background: rgba(0, 0, 0, 0.6);
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.2);
@@ -89,15 +107,73 @@
     font-size: medium;
 }
 
-.containerForm button:hover {
+.field button:hover {
     background: black;
 }
 
-.containerForm button:focus {
+.field button:focus {
     outline: none;
 }
 
-.checks{
+.field .addButtonContainer {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.field .addStep {
+    font-size: large;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bolder;
+}
+
+/* .step .buttonDelete{
+    top: 0;
+    right: 0;
+} */
+
+.checks {
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.createButton {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerFinal .create {
+    font-size: x-large;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bolder;
+}
+
+.create:hover {
+    background: black;
+}
+
+.create:focus {
+    outline: none;
+}
+
+.field {
+    margin-top: 20px;
+}
+
+.title {
+    text-align: center;
+}
+
+.containerFinal hr {
+    border: solid rgba(255, 255, 255, 0.2);
 }
