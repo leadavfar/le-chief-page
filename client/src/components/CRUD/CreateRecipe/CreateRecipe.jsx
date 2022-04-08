@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiets, getCuisines, postRecipe } from "../../../actions";
 import NavBar from "../../NavBar/NavBar";
+import { FaRegEdit, FaEye, FaTrashAlt } from "react-icons/fa";
 import Styles from './CreateRecipe.module.css';
 
 
@@ -159,6 +160,27 @@ export default function CreateRecipe() {
         });
     };
 
+    /*     const [inputSteps, setInputSteps] = useState({
+            number: 1,
+            step: '',
+            ingredients: [],
+            equipment: []
+        }); */
+
+    function deleteIngredient(ingredient) {
+        setInputSteps({
+            ...inputSteps,
+            ingredients: inputSteps.ingredients.filter((el) => el !== ingredient)
+        });
+    };
+
+    function deleteEquipment(equipment) {
+        setInputSteps({
+            ...inputSteps,
+            equipment: inputSteps.equipment.filter((el) => el !== equipment)
+        });
+    };
+
     //POST RECIPE
 
     function handleSubmit() {
@@ -311,6 +333,15 @@ export default function CreateRecipe() {
                                 <button onClick={(e) => insertIngredientValue(e)}>Add Ingredient</button>
                             </form>
 
+                            {inputSteps.ingredients?.map((el) => {
+                                return (
+                                    <div className={Styles.ingredientEquipment}>
+                                        <label>{el}</label>
+                                        <button className={Styles.deleteIngredientEquipment} onClick={() => deleteIngredient(el)}>x</button>
+                                    </div>
+                                )
+                            })}
+
                             <form className={Styles.field}>
                                 <label><b>Equipment: </b></label>
                                 <input
@@ -321,6 +352,15 @@ export default function CreateRecipe() {
                                     onChange={(e) => handleStepsValuesOnChange(e)} />
                                 <button onClick={(e) => insertEquipmentValue(e)}>Add Equipment</button>
                             </form>
+
+                            {inputSteps.equipment?.map((el) => {
+                                return (
+                                    <div className={Styles.ingredientEquipment}>
+                                        <label>{el}</label>
+                                        <button className={Styles.deleteIngredientEquipment} onClick={() => deleteEquipment(el)}>x</button>
+                                    </div>
+                                )
+                            })}
 
                             <div className={Styles.addButtonContainer}>
                                 <button className={Styles.addStep} onClick={(e) => insertStep(e)}>Add Step</button>
@@ -337,7 +377,7 @@ export default function CreateRecipe() {
                                     {el.ingredients?.length > 0 ? <p><b>Ingredients: </b>{el.ingredients.map(el => el + ', ')}</p> : null}
                                     {el.equipment?.length > 0 ? <p><b>Equipment: </b>{el.equipment.map(el => el + ', ')}</p> : null}
                                     <div className={Styles.buttonDelete}>
-                                        <button onClick={() => deleteStep(el)}>x</button>
+                                        <button onClick={() => deleteStep(el)}><FaTrashAlt fontSize={'13px'} /></button>
                                     </div>
                                 </div>
                             )
