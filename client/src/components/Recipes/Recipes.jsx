@@ -10,6 +10,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import Paged from "../Paged/Paged";
 import Styles from './Recipes.module.css';
 import RecipeCard from "../RecipeCard/RecipeCard";
+import Foot from "../Foot/Foot";
 
 export default function Recipes() {
 
@@ -144,16 +145,19 @@ export default function Recipes() {
                     </select>
                 </div>
 
+                <div>
+                    {/* Recipes render */}
+                    <div className={Styles.recipe_container}>
+                        {currentRecipes?.map((el) => {
+                            return (
+                                <div key={el._id}>
+                                    <RecipeCard title={el.title} image={el.image} diets={el.diets} price={el.price} id={el._id} />
+                                </div>
+                            )
+                        })}
 
-                {/* Recipes render */}
-                <div className={Styles.recipe_container}>
-                    {currentRecipes?.map((el) => {
-                        return (
-                            <div key={el._id}>
-                                <RecipeCard title={el.title} image={el.image} diets={el.diets} price={el.price} id={el._id} />
-                            </div>
-                        )
-                    })}
+
+                    </div>
 
                     {/* Paged */}
                     <div>
@@ -164,8 +168,9 @@ export default function Recipes() {
                             paged={paged} />
                     </div>
                 </div>
-
-
+            </div>
+            <div>
+                <Foot />
             </div>
         </div>
 

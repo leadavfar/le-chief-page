@@ -1,10 +1,23 @@
 .paged {
-    text-align:center;
+    text-align: center;
     font-size: x-large;
 }
 
 .paged ul li {
     display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-/* hola amigo */
+.paged ul li a {
+    font-size: x-large;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.paged ul li a:hover {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* hola amigo border-color: rgba(255, 255, 255, 0.2); */
