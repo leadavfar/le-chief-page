@@ -1,4 +1,26 @@
+.margin {
+    position: relative;
+    margin-top: 120px;
+}
+
 .container {
     background: rgba(0, 0, 0, 0.6);
     border-top: solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+.credits {
+    margin-left: 100px;
+    margin-right: 50px;
+}
+
+.links {
+    margin-right: 100px;
+}
+
+.links a {
+    margin-left: 20px;
 }

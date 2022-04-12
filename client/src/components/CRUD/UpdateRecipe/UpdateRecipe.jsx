@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDiets, getCuisines, putRecipe, getRecipeDetail } from "../../../actions";
 import NavBar from "../../NavBar/NavBar";
-
+import Foot from "../../Foot/Foot";
 
 
 
@@ -345,6 +345,7 @@ export default function UpdateRecipe(props) {
 
                 <button type="submit">Update</button>
             </form>
+            <Foot/>
         </div >
     )
 }

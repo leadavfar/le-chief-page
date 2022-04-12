@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getRecipeDetail } from "../../actions";
 import Styles from './RecipeDetail.module.css'
 import NavBar from "../NavBar/NavBar";
+import Foot from "../Foot/Foot";
 
 
 export default function RecipeDetail(props) {
@@ -39,7 +40,7 @@ export default function RecipeDetail(props) {
 
                         <div className={Styles.image}>
                             <h1>{selectedRecipe[0]?.title}</h1>
-                            <img src={selectedRecipe[0]?.image}/>
+                            <img src={selectedRecipe[0]?.image} />
                         </div>
 
                         <div className={Styles.summary}>
@@ -76,6 +77,7 @@ export default function RecipeDetail(props) {
                     </div>
                 </div>
             </div>
+            <Foot />
         </div>
     )
 }

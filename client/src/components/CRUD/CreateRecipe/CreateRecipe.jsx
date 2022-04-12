@@ -4,6 +4,7 @@ import { getDiets, getCuisines, postRecipe } from "../../../actions";
 import NavBar from "../../NavBar/NavBar";
 import { FaRegEdit, FaEye, FaTrashAlt } from "react-icons/fa";
 import Styles from './CreateRecipe.module.css';
+import Foot from "../../Foot/Foot";
 
 
 export default function CreateRecipe() {
@@ -43,8 +44,12 @@ export default function CreateRecipe() {
         equipmentValue: ''
     });
 
+    const [checkedValues, setCheckedValues] = useState([]);
+
 
     //SET INPUTS//
+
+
     function handleOnChange(e) {
         console.log(input)
         setInput({
@@ -72,48 +77,32 @@ export default function CreateRecipe() {
     //INSERT TO ARRAYS
 
     function handleCheckDiets(e) {
+        let allDiets = input.diets;
+        if (allDiets.includes(e.target.value)) {
+            allDiets = allDiets.filter(el => el !== e.target.value)
+        } else {
+            allDiets.push(e.target.value)
+        };
         setInput({
             ...input,
-            diets: [...input.diets, e.target.value]
+            diets: allDiets
+            /* diets: [...input.diets, e.target.value] */
         })
     };
 
-
-    function filter(e) {
-
-    }
-
-
     function handleCheckCuisines(e) {
+        let allCuisines = input.cuisines;
+        if (allCuisines.includes(e.target.value)) {
+            allCuisines = allCuisines.filter(el => el !== e.target.value)
+        } else {
+            allCuisines.push(e.target.value)
+        };
         setInput({
             ...input,
-            cuisines: [...input.cuisines, e.target.value]
+            cuisines: allCuisines
+            /* cuisines: [...input.cuisines, e.target.value] */
         });
-        /* 
-                let newArray = input.cuisines;
-                let value = undefined;
-                for (let i = 0; i < input.cuisines.length - 1; i++) {
-                    for (let j = i + 1; j < input.cuisines.length; j++) {
-                        if (input.cuisines[i] === input.cuisines[j]) {
-                            value = input.cuisines[i];
-                            newArray = newArray.filter((el) => el !== e.target.value);
-                        }
-                    }
-                }
-                setInput({
-                    ...input,
-                    cuisines: newArray
-                }) */
-
     };
-
-    /*     function handleDelete(el) {
-            setInput({
-                ...input,
-                diets: input.diets.filter(occ => occ !== el)
-            })
-        }
-     */
 
     function insertEquipmentValue(e) {
         console.log(inputSteps)
@@ -198,7 +187,10 @@ export default function CreateRecipe() {
     return (
         <div>
             <NavBar />
-            <h1>Create Recipe</h1>
+
+            <div className={Styles.titlePage}>
+                <h1>Create Recipe</h1>
+            </div>
 
             <div className={Styles.containerFinal}>
 
@@ -388,6 +380,7 @@ export default function CreateRecipe() {
                     </div>
                 </form>
             </div>
+            <Foot />
         </div >
     )
 }

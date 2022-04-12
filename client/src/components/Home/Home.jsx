@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../NavBar/NavBar";
 import image from '../../public/kirsty2.jpg'
 import Styles from './Home.module.css'
+import Foot from "../Foot/Foot";
 
 export default function Home() {
     return (
@@ -20,6 +21,9 @@ export default function Home() {
                 <p>
                     In this app you can get many recipes from Spoonacular and many users, also you can create your own recipes
                 </p>
+            </div>
+            <div>
+                <Foot />
             </div>
         </div>
     )

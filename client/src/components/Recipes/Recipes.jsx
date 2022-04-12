@@ -173,7 +173,5 @@ export default function Recipes() {
                 <Foot />
             </div>
         </div>
-
-
     );
 };

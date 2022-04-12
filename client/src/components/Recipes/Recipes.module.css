@@ -1,4 +1,6 @@
-
+.container_all{
+    position: relative;
+}
 
 .filters_recipes {
     display: flex;

@@ -6,6 +6,7 @@ import NavBar from "../../NavBar/NavBar";
 import ReadRecipes from "../ReadRecipes/ReadRecipes";
 import Styles from './CrudHome.module.css';
 import { FaRegEdit } from "react-icons/fa";
+import Foot from "../../Foot/Foot";
 
 export default function CrudHome() {
     const dispatch = useDispatch();
@@ -46,7 +47,9 @@ export default function CrudHome() {
                     })}
                 </div>
             </div>
-
+            <div>
+                <Foot />
+            </div>
         </div>
     )
 } 
