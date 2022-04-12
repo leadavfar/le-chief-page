@@ -5,7 +5,6 @@ export default function Foot() {
     return (
         <div className={Styles.container}>
             <h1>Bocha Derechos Reservados</h1>
-            <h2>caca</h2>
         </div>
     )
 }
