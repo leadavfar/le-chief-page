@@ -3,7 +3,27 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 } 
+
+.container img{
+  filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(110%) contrast(100%);
+}
+
+.container p{
+  font-size: x-large;
+  text-align: center;
+}
+
+.container h1{
+  font-size: 40px
+}
+
+.fut{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 /* .container {
     position: relative;

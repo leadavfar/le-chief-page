@@ -1,5 +1,8 @@
 .container_all{
-    position: relative;
+}
+
+.container_all h1{
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .filters_recipes {
@@ -94,3 +97,13 @@
 .container_all input:focus {
     outline: none;
 }
+
+/* .fut{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .futspace{
+      height: 100px;
+  } */

@@ -19,6 +19,11 @@
     margin-left: 60px;
     display: flex;
     align-items: center;
+    transition: color 300ms;
+}
+
+.logo:hover {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .logo img {
@@ -31,8 +36,14 @@
     position: absolute;
     top: 0;
     right: 60px;
+    transition: color 300ms;
 }
 
 .links h3 {
     margin-left: 20px;
+    transition: color 300ms;
+}
+
+.links h3 :hover {
+    color: rgba(255, 255, 255, 0.8);
 }

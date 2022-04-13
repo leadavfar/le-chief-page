@@ -47,9 +47,9 @@ export default function CrudHome() {
                     })}
                 </div>
             </div>
-            <div>
+            {/* <div>
                 <Foot />
-            </div>
+            </div> */}
         </div>
     )
 } 

@@ -1,14 +1,10 @@
-.margin {
-    position: relative;
+/* .margin {
     margin-top: 120px;
-}
+} */
 
 .container {
     background: rgba(0, 0, 0, 0.6);
     border-top: solid rgba(255, 255, 255, 0.2);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     display: flex;
 }
 
@@ -23,4 +19,9 @@
 
 .links a {
     margin-left: 20px;
+    transition: 300ms;
+}
+
+.links a:hover {
+    color: rgba(255, 255, 255, 0.8);
 }

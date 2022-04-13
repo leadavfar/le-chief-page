@@ -7,14 +7,14 @@ export default function Foot() {
         <div className={Styles.margin}>
             <div className={Styles.container}>
                 <div className={Styles.credits}>
-                    <h2>Leandro Farias ® 2021</h2>
+                    <h3>Leandro Farias ® 2021</h3>
                 </div>
                 <div className={Styles.links}>
-                    <h2>
-                        <a href="https://leandro-farias-portfolio.vercel.app/"> <FaUserTie /></a>
-                        <a href="https://www.linkedin.com/in/leadavfar/"> <FaLinkedin /></a>
-                        <a href="https://github.com/leadavfar"> <FaGithub /></a>
-                    </h2>
+                    <h3>
+                        <a href="https://leandro-farias-portfolio.vercel.app/"> <FaUserTie fontSize={'22px'} /></a>
+                        <a href="https://www.linkedin.com/in/leadavfar/"> <FaLinkedin fontSize={'22px'} /></a>
+                        <a href="https://github.com/leadavfar"> <FaGithub fontSize={'22px'} /></a>
+                    </h3>
                 </div>
             </div>
         </div>

@@ -169,9 +169,10 @@ export default function Recipes() {
                     </div>
                 </div>
             </div>
-            <div>
+{/*             <div className={Styles.futspace}></div>
+            <div className={Styles.fut}>
                 <Foot />
-            </div>
+            </div> */}
         </div>
     );
 };

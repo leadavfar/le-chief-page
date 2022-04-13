@@ -44,6 +44,7 @@ export default function RecipeDetail(props) {
                         </div>
 
                         <div className={Styles.summary}>
+                            <h1>Summary</h1>
                             <p dangerouslySetInnerHTML={{ __html: selectedRecipe[0]?.summary }}></p>
                         </div>
 
@@ -77,7 +78,7 @@ export default function RecipeDetail(props) {
                     </div>
                 </div>
             </div>
-            <Foot />
+            {/* <Foot /> */}
         </div>
     )
 }

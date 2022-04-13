@@ -215,7 +215,7 @@ export default function CreateRecipe() {
 
                     {/* image */}
                     <div className={Styles.field}>
-                        <label><b>Image: </b></label>
+                        <label><b>Image Link: </b></label>
                         <input
                             type='text'
                             name='image'
@@ -380,7 +380,7 @@ export default function CreateRecipe() {
                     </div>
                 </form>
             </div>
-            <Foot />
+            {/* <Foot /> */}
         </div >
     )
 }
