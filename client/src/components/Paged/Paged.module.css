@@ -3,6 +3,11 @@
     font-size: x-large;
 }
 
+.paged ul {
+    border: solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+}
+
 .paged ul li {
     display: inline;
     margin-left: 10px;
@@ -21,3 +26,33 @@
 }
 
 /* hola amigo border-color: rgba(255, 255, 255, 0.2); */
+
+.containerpaged {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    justify-content: center;
+}
+
+.containerpaged p {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: x-large;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.containerpaged p:hover {
+    background: black;
+}
+
+.containerpaged p a:hover {
+    color: rgba(255, 255, 255, 0.2);
+}

@@ -3,7 +3,7 @@ import Styles from './Paged.module.css'
 
 export default function Paged({ recipesInPage, recipes, paged }) {
     const pageNumber = [];
-    
+
     for (let i = 1; i <= Math.ceil(recipes / recipesInPage); i++) {
         pageNumber.push(i);
     };
@@ -21,3 +21,16 @@ export default function Paged({ recipesInPage, recipes, paged }) {
         </div>
     )
 }
+
+
+/* 
+< div className={Styles.paged} >
+<div className={Styles.containerpaged}>
+    {pageNumber &&
+        pageNumber.map(number => (
+            <p key={number}>
+                <a onClick={() => paged(number)}>{number}</a>
+            </p>
+        ))}
+</div>
+</div > */
