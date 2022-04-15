@@ -55,7 +55,6 @@ const getApiInfo = async () => {
 
 app.use(express.json());
 app.use(cors())
-app.use(morgan("dev"));
 app.use('/', routes);
 
 module.exports = app;

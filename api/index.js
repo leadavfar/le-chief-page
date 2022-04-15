@@ -6,6 +6,4 @@ app.get('/', function (req, res) {
     res.send("<h1>Le Chief Page API</h1>")
 });
 
-app.listen(PORT, () => (
-    console.log(`listening on http://localhost:${PORT}/`)
-));
+app.listen(PORT);
