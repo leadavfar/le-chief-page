@@ -16,14 +16,6 @@ export default function RecipeDetail(props) {
         dispatch(getRecipeDetail(props.match.params.id));
     }, [dispatch]);
 
-    /*     useEffect(() => {
-            //your code goes here
-            return () => {
-                //your cleanup code codes here
-    
-            };
-        }, []); */
-
     const selectedRecipe = useSelector((state) => state.recipeDetail)
 
     console.log(selectedRecipe[0])
@@ -78,7 +70,7 @@ export default function RecipeDetail(props) {
                     </div>
                 </div>
             </div>
-            {/* <Foot /> */}
+            {/* <Foot /> futer*/}
         </div>
     )
 }
