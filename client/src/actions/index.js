@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function getRecipes() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/recipes/all-recipes');
+        var json = await axios.get('https://le-chief-page-api.herokuapp.com/recipes/all-recipes');
         return dispatch({
             type: 'GET_RECIPES',
             payload: json.data
@@ -12,7 +12,7 @@ export function getRecipes() {
 
 export function getUsersRecipes() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/recipes/users-recipes');
+        var json = await axios.get('https://le-chief-page-api.herokuapp.com/recipes/users-recipes');
         return dispatch({
             type: 'GET_USERS_RECIPES',
             payload: json.data
@@ -22,7 +22,7 @@ export function getUsersRecipes() {
 
 export function getDiets() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/diets');
+        var json = await axios.get('https://le-chief-page-api.herokuapp.com/diets');
         return dispatch({
             type: 'GET_DIETS',
             payload: json.data
@@ -32,7 +32,7 @@ export function getDiets() {
 
 export function getCuisines() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/cuisines');
+        var json = await axios.get('https://le-chief-page-api.herokuapp.com/cuisines');
         return dispatch({
             type: 'GET_CUISINES',
             payload: json.data
@@ -42,7 +42,7 @@ export function getCuisines() {
 
 export function getRecipesByTitle(title) {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/recipes/all-recipes?title=' + title);
+        var json = await axios.get('https://le-chief-page-api.herokuapp.com/recipes/all-recipes?title=' + title);
         return dispatch({
             type: 'GET_RECIPES_BY_TITLE',
             payload: json.data
@@ -52,7 +52,7 @@ export function getRecipesByTitle(title) {
 
 export function getRecipeDetail(id) {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3002/recipes/all-recipes/' + id);
+        var json = await axios.get('https://le-chief-page-api.herokuapp.com/recipes/all-recipes/' + id);
         return dispatch({
             type: 'GET_RECIPE_DETAIL',
             payload: json.data
@@ -107,7 +107,7 @@ export function filterRecipesByOrigin(payload) {
 
 export function postRecipe(payload) {
     return async function (dispatch) {
-        const json = await axios.post('http://localhost:3002/recipes/post-user-recipe', payload);
+        const json = await axios.post('https://le-chief-page-api.herokuapp.com/recipes/post-user-recipe', payload);
         return dispatch({
             type: 'POST_RECIPE',
             payload: json
@@ -117,7 +117,7 @@ export function postRecipe(payload) {
 
 export function putRecipe(id, payload) {
     return async function (dispatch) {
-        const json = await axios.put('http://localhost:3002/recipes/put-user-recipe/' + id, payload);
+        const json = await axios.put('https://le-chief-page-api.herokuapp.com/recipes/put-user-recipe/' + id, payload);
         return dispatch({
             type: 'PUT_RECIPE',
             payload: json
@@ -127,7 +127,7 @@ export function putRecipe(id, payload) {
 
 export function deleteRecipe(id) {
     return async function (dispatch) {
-        const json = await axios.delete('http://localhost:3002/recipes/delete-user-recipe/' + id);
+        const json = await axios.delete('https://le-chief-page-api.herokuapp.com/recipes/delete-user-recipe/' + id);
         return dispatch({
             type: 'DELETE_RECIPE',
             payload: json
