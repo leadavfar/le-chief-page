@@ -70,7 +70,7 @@ export default function RecipeDetail(props) {
                     </div>
                 </div>
             </div>
-            {/* <Foot /> futer*/}
+            {/* <Foot />*/}
         </div>
     )
 }
