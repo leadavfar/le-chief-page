@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const axios = require("axios").default;
+/* const axios = require("axios").default; */
 
 const { getApiRecipes, getUsersRecipes, getAllRecipes, postRecipe, putRecipe, deleteRecipe, getRecipeById } = require('../controllers/recipes');
 

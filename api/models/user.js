@@ -8,7 +8,6 @@ const UserSchema = new Schema({
     password: { type: String, required: true },
     recipesCreated: { type: Array, required: false },
     recipesFav: { type: Array, required: false }
-
 }, {
     timestamps: true
 });
