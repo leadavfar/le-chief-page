@@ -2,10 +2,10 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const UserSchema = new Schema({
-    uniqueUserName: { type: String, required: true },
+    uniqueUserName: { type: String, required: true, unique: true },
     userName: { type: String, required: true },
-    email: { type: String, required: true },
-    password: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true, unique: true },
     recipesCreated: { type: Array, required: false },
     recipesFav: { type: Array, required: false }
 }, {
