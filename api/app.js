@@ -40,6 +40,7 @@ const getApiInfo = async () => {
     spoonacularScore: { type: String, required: true },
     healthScore*/
 
+/*     work */
 
 (async function fillDb() {
     recipesInDataBase = await Recipe.find();
